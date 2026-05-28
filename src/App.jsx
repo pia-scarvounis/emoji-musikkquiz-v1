@@ -54,7 +54,9 @@ const questions = [
   { id: 49, emojis: "👩🏼‍⚕️🇦🇱" },
   { id: 50, emojis: "🐝🪡" },
   { id: 51, emojis: "🔫👀✌️🍷🏠" },
-  { id: 52, emojis: "👨🏻‍💼 👩🏼‍⚕️ 👷🏼‍♂️ 👮🏽‍♂️ 🔑 "}
+  { id: 52, emojis: "👨🏻‍💼 👩🏼‍⚕️ 👷🏼‍♂️ 👮🏽‍♂️ 🔑 "},
+  { id: 53, emojis: "🐪" },
+
 ];
 
 function App() {
