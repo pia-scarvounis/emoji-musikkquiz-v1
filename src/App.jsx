@@ -135,104 +135,98 @@ function nextQuestion() {
     }
   }
 
-  function getDotColor(index) {
-    if (statuses[index] === "answered") return "bg-[#3c9f64]";
-    if (statuses[index] === "stuck") return "bg-[#d94a2f]";
-    return "bg-[#ebe1d2]";
-  }
 
   if (screen === "quiz") {
     return (
-      <main className="min-h-screen bg-white px-5 py-6 text-[#171717]">
-        <section className="mx-auto flex w-full max-w-sm flex-col items-center text-center">
-          <div className="flex w-full items-center justify-between px-1">
-            <p className="text-sm font-black tracking-[-0.3px] text-black/35">
-              {selectedQuiz === "quizOne" ? "Quiz 1" : "Quiz 2"} · {question.id} av{" "}
-              {questions.length}
-            </p>
+      <main className="relative flex h-dvh flex-col bg-white px-5 py-6 text-[#171717]">
+        <section className="mx-auto flex w-full max-w-sm flex-1 flex-col text-center">
 
-     <button
-  onClick={() => {
-    celebrate();
-    setScreen("done");
-  }}
-  className="text-sm font-black tracking-[-0.3px] text-black/35"
->
-  Avslutt
-</button>
+          <div className="flex w-full items-center justify-between">
+            <p className="text-sm font-black tracking-[-0.3px] text-black/35">
+              {selectedQuiz === "quizOne" ? "Quiz 1" : "Quiz 2"} · {question.id} av {questions.length}
+            </p>
+            <button
+              onClick={() => { celebrate(); setScreen("done"); }}
+              className="text-sm font-black tracking-[-0.3px] text-black/35"
+            >
+              Avslutt
+            </button>
           </div>
 
-          <div className="mt-5 grid w-full grid-cols-12 gap-2 rounded-[28px] bg-[#fffaf3] px-4 py-4">
+          <div className="mt-3 flex w-full gap-[3px]">
             {questions.map((item, index) => {
+              const status = statuses[index];
               const isActive = index === currentQuestion;
-
               return (
                 <button
                   key={item.id}
                   onClick={() => setCurrentQuestion(index)}
-                  className={`mx-auto h-3.5 w-3.5 rounded-full transition ${getDotColor(
-                    index
-                  )} ${
-                    isActive
-                      ? "ring-2 ring-black ring-offset-2 ring-offset-[#fffaf3]"
-                      : ""
-                  }`}
                   aria-label={`Gå til oppgave ${item.id}`}
+                  className={`h-1.5 flex-1 rounded-full transition-colors duration-200 ${
+                    status === "answered"
+                      ? "bg-[#3c9f64]"
+                      : status === "stuck"
+                      ? "bg-[#d94a2f]"
+                      : isActive
+                      ? "bg-black/25"
+                      : "bg-black/10"
+                  }`}
                 />
               );
             })}
           </div>
 
-          <div className="mt-8 flex min-h-[230px] w-full flex-col items-center justify-center rounded-[42px] border border-[#f2e6d6] bg-[#fffaf3] px-6">
-            <p className="mb-6 text-sm font-black uppercase tracking-[0.18em] text-black/35">
+          <div
+            key={currentQuestion}
+            className="question-card mt-5 flex flex-1 w-full flex-col items-center justify-center rounded-[42px] bg-gradient-to-b from-[#fffdf9] to-[#fff7eb] shadow-[0_8px_40px_rgba(217,74,47,0.07),0_2px_12px_rgba(0,0,0,0.06)]"
+          >
+            <p className="mb-5 text-[10px] font-black uppercase tracking-[0.28em] text-black/25">
               Oppgave {question.id}
             </p>
-
-            <p className="break-words text-[70px] leading-tight">
+            <p className="break-words px-8 text-[72px] leading-tight">
               {question.emojis}
             </p>
           </div>
 
-          <div className="mt-7 grid w-full grid-cols-2 gap-3">
+          <div className="mt-4 grid w-full grid-cols-2 gap-3">
             <button
               onClick={() => setStatus("answered")}
-              className={`rounded-full px-5 py-4 font-black transition active:scale-[0.98] ${
+              className={`rounded-full px-5 py-3.5 font-black transition active:scale-[0.98] ${
                 statuses[currentQuestion] === "answered"
-                  ? "bg-[#3c9f64] text-white"
-                  : "bg-[#e7f7df] text-[#225f39]"
+                  ? "bg-[#3c9f64] text-white shadow-[0_4px_12px_rgba(60,159,100,0.3)]"
+                  : "bg-[#eaf7ef] text-[#2d7a4e]"
               }`}
             >
               ✅ Besvart
             </button>
-
             <button
               onClick={() => setStatus("stuck")}
-              className={`rounded-full px-5 py-4 font-black transition active:scale-[0.98] ${
+              className={`rounded-full px-5 py-3.5 font-black transition active:scale-[0.98] ${
                 statuses[currentQuestion] === "stuck"
-                  ? "bg-[#d94a2f] text-white"
-                  : "bg-[#fff0d6] text-[#8a4b14]"
+                  ? "bg-[#d94a2f] text-white shadow-[0_4px_12px_rgba(217,74,47,0.3)]"
+                  : "bg-[#fff3e0] text-[#c26a1a]"
               }`}
             >
               😵‍💫 Står fast
             </button>
           </div>
 
-          <div className="mt-7 flex w-full gap-3">
+          <div className="mt-3 flex w-full gap-3">
             <button
               onClick={previousQuestion}
               disabled={currentQuestion === 0}
-              className="w-full rounded-full bg-[#f4f4f4] px-5 py-4 font-black text-black/60 transition active:scale-[0.98] disabled:opacity-35"
+              className="w-full rounded-full bg-[#f4f4f4] px-5 py-3.5 font-black text-black/60 transition active:scale-[0.98] disabled:opacity-35"
             >
               ← Forrige
             </button>
-
             <button
               onClick={nextQuestion}
-              className="w-full rounded-full bg-[#d94a2f] px-5 py-4 font-black text-white transition active:scale-[0.98]"
+              className="w-full rounded-full bg-[#d94a2f] px-5 py-3.5 font-black text-white shadow-[0_4px_14px_rgba(217,74,47,0.28)] transition active:scale-[0.98]"
             >
               {isLastQuestion ? "Ferdig →" : "Neste →"}
             </button>
           </div>
+
         </section>
       </main>
     );
