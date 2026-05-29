@@ -302,7 +302,7 @@ function nextQuestion() {
   }
 
  return (
-  <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-white px-5 py-3 text-[#171717]">
+  <main className="relative flex h-dvh flex-col items-center overflow-hidden bg-white px-5 py-3 text-[#171717]">
     <div className="pointer-events-none absolute left-0 top-0 h-44 w-full bg-gradient-to-b from-[#fff0e5] to-transparent" />
     <div className="pointer-events-none absolute bottom-0 left-0 h-44 w-full bg-gradient-to-t from-[#fff4e4] to-transparent" />
 
@@ -322,7 +322,7 @@ function nextQuestion() {
       🎤
     </div>
 
-    <section className="relative mx-auto flex w-full max-w-sm flex-col items-center text-center">
+    <section className="relative mx-auto flex w-full max-w-sm flex-1 flex-col items-center text-center">
       <h1 className="text-[58px] font-black leading-[0.82] tracking-[-3px]">
         Emoji
         <span className="block text-[#d94a2f]">musikkquiz</span>
@@ -398,19 +398,21 @@ function nextQuestion() {
         </button>
       </div>
 
-      <p className="mt-4 text-[12px] leading-5 text-black/45">
-        ✨ Ingen googling • Ingen AI • Ingen krangling ✨
-      </p>
+      <div className="mt-auto flex w-full flex-col items-center pt-4">
+        <p className="text-[12px] leading-5 text-black/40">
+          ✨ Ingen googling • Ingen AI • Ingen krangling ✨
+        </p>
 
-      <div className="mt-5 flex w-full items-center justify-center gap-3">
-        <div className="h-px flex-1 bg-black/10" />
-        <span className="heart-pop text-sm">❤️</span>
-        <div className="h-px flex-1 bg-black/10" />
+        <div className="mt-4 flex w-full items-center justify-center gap-3">
+          <div className="h-px flex-1 bg-black/10" />
+          <span className="heart-pop text-sm">🎵</span>
+          <div className="h-px flex-1 bg-black/10" />
+        </div>
+
+        <p className="mt-2 text-[12px] font-medium text-black/35">
+          Made with <span className="heart-pop">❤️</span> by Pia Scarvounis
+        </p>
       </div>
-
-      <p className="mt-2 text-[12px] font-medium text-black/35">
-        Made with <span className="heart-pop">❤️</span> by Pia Scarvounis
-      </p>
     </section>
   </main>
 );
