@@ -329,13 +329,16 @@ function nextQuestion() {
 
         <div className="mt-4 flex w-full flex-col items-center">
           <p className="text-[16px] font-bold tracking-[-0.3px]">
-            All you need is:
+            All you need is...
           </p>
 
           <div className="mt-3 flex flex-wrap justify-center gap-2">
             <div className="rounded-full bg-[#fff7eb] px-4 py-2 text-[14px] font-medium">
               ❤️ Love
             </div>
+            <div className="rounded-full bg-[#fff7eb] px-4 py-2 text-[14px] font-medium">
+  🧠 Brains
+</div>
 
             <div className="rounded-full bg-[#fff7eb] px-4 py-2 text-[14px] font-medium">
               📝 Papir
