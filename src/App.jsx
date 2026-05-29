@@ -41,6 +41,9 @@ const quizOne = [
   { id: 35, emojis: "🐫" },
   { id: 36, emojis: "👀🗣️🫓🚽" },
      { id: 37, emojis: "🍆👄🐝" },
+     { id: 38, emojis: "🌋🐜ℹ️" },
+{ id: 39, emojis: "🧃🧊☀️🐝🧎‍♀️‍➡️" },
+{ id: 40, emojis: "🍆😇🅾️" },
 ];
 
 const quizTwo = [
@@ -81,6 +84,9 @@ const quizTwo = [
   { id: 35, emojis: "🦁🔌🤑" },
   { id: 36, emojis: "🚽🙂‍↕️🐈" },
    { id: 37, emojis: "🪜🔥🧯" },
+   { id: 38, emojis: "Ⓜ️👉Ⓜ️" },
+{ id: 39, emojis: "🦁🌉🌉" },
+{ id: 40, emojis: "🔵" },
 ];
 
 function App() {
@@ -317,7 +323,7 @@ function nextQuestion() {
           </div>
 
           <div className="rounded-full bg-[#fff7eb] px-3 py-1.5 text-[13px] font-bold text-black/55">
-            74 oppgaver
+            80 oppgaver
           </div>
         </div>
 
