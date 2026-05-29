@@ -361,11 +361,7 @@ function nextQuestion() {
         className="float-image mt-2 w-full max-w-[175px]"
       />
 
-      <div className="mt-3 flex items-center justify-center rounded-full bg-[#fff7eb] px-5 py-2 text-[14px] font-black text-black/70 shadow-sm ring-1 ring-black/5">
-        <span>⭐ 2 quizer</span>
-        <span className="mx-3 h-5 w-px bg-black/10" />
-        <span>🎵 80 oppgaver</span>
-      </div>
+      <p className="mt-2 text-[11px] font-bold uppercase tracking-[0.38em] text-black/30">2 quizer · 80 oppgaver</p>
 
       <div className="mt-3 flex w-full flex-col items-center">
         <p className="relative text-[17px] font-black italic tracking-[-0.4px]">
