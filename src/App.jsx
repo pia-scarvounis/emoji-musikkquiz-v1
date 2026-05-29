@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import musicImage from "./assets/music.png";
+import confetti from "canvas-confetti";
 
 const quizOne = [
   { id: 1, emojis: "👧🏼🟥" },
@@ -105,14 +106,22 @@ function App() {
       [currentQuestion]: status,
     });
   }
+  function celebrate() {
+  confetti({
+    particleCount: 90,
+    spread: 70,
+    origin: { y: 0.65 },
+  });
+}
 
-  function nextQuestion() {
-    if (isLastQuestion) {
-      setScreen("done");
-    } else {
-      setCurrentQuestion(currentQuestion + 1);
-    }
+function nextQuestion() {
+  if (isLastQuestion) {
+    celebrate();
+    setScreen("done");
+  } else {
+    setCurrentQuestion(currentQuestion + 1);
   }
+}
 
   function previousQuestion() {
     if (currentQuestion > 0) {
@@ -136,12 +145,15 @@ function App() {
               {questions.length}
             </p>
 
-            <button
-              onClick={() => setScreen("done")}
-              className="text-sm font-black tracking-[-0.3px] text-black/35"
-            >
-              Avslutt
-            </button>
+     <button
+  onClick={() => {
+    celebrate();
+    setScreen("done");
+  }}
+  className="text-sm font-black tracking-[-0.3px] text-black/35"
+>
+  Avslutt
+</button>
           </div>
 
           <div className="mt-5 grid w-full grid-cols-12 gap-2 rounded-[28px] bg-[#fffaf3] px-4 py-4">
@@ -229,7 +241,7 @@ function App() {
       (status) => status === "stuck"
     ).length;
 
-    const untouchedCount = questions.length - answeredCount - stuckCount;
+   const notAnsweredCount = questions.length - answeredCount;
 
     return (
       <main className="flex min-h-screen items-center justify-center bg-white px-6 py-6 text-[#171717]">
@@ -254,8 +266,8 @@ function App() {
             </div>
 
             <div className="rounded-[24px] bg-[#f4f4f4] p-4">
-              <p className="text-2xl font-black">{untouchedCount}</p>
-              <p className="mt-1 text-sm font-bold text-black/45">Ubesvart</p>
+            <p className="text-2xl font-black">{notAnsweredCount}</p>
+<p className="mt-1 text-sm font-bold text-black/45">Ikke besvart</p>
             </div>
           </div>
 
