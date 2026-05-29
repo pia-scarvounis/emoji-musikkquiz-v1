@@ -2,70 +2,102 @@ import { useState } from "react";
 import "./App.css";
 import musicImage from "./assets/music.png";
 
-const questions = [
-  { id: 1, emojis: "🌶️👯‍♀️" },
-  { id: 2, emojis: "🍯👧🏼👦🏽" },
-  { id: 3, emojis: "👈🏻👌🏼🔫🔫" },
-  { id: 4, emojis: "♿️🪨🪨" },
-  { id: 5, emojis: "🪲🪲" },
-  { id: 6, emojis: "🐝🔛©️" },
-  { id: 7, emojis: "🤴🤴🦁" },
-  { id: 8, emojis: "🔴🥵🌶️" },
-  { id: 9, emojis: "🔊🪁" },
-  { id: 10, emojis: "📬🎨☝🏼" },
-  { id: 11, emojis: "🔫🔫🌹🌹" },
-  { id: 12, emojis: "🚽🙂‍↕️🐈" },
-  { id: 13, emojis: "👧🏼🟥" },
-  { id: 14, emojis: "😴💭🏠" },
-  { id: 15, emojis: "🔗🅿️" },
-  { id: 16, emojis: "🥶▶️" },
-  { id: 17, emojis: "🚬🍄" },
-  { id: 18, emojis: "🕒🚪🚪⤵️" },
-  { id: 19, emojis: "🫏🙍🏾‍♂️" },
-  { id: 20, emojis: "©️©️🤠🤠" },
-  { id: 21, emojis: "🐱🪆🪆" },
-  { id: 22, emojis: "⚫️👁️🫛" },
-  { id: 23, emojis: "🚧👉" },
-  { id: 24, emojis: "🧑‍🍼👶🏼" },
-  { id: 25, emojis: "☯️👯‍♂️" },
-  { id: 26, emojis: "🙍🏾‍♂️🙍🏾‍♂️➡️🧔🧔" },
-  { id: 27, emojis: "🫵✌️" },
-  { id: 28, emojis: "🦁🔌🤑" },
-  { id: 29, emojis: "🧂🫑" },
-  { id: 30, emojis: "🚰🇪🇸🇮🇹" },
-  { id: 31, emojis: "🍫🍩🍡👶🏼👶🏼" },
-  { id: 32, emojis: "✉️🏤" },
-  { id: 33, emojis: "🌇🚮" },
-  { id: 34, emojis: "6️⃣⚫️" },
-  { id: 35, emojis: "😢🕓😱" },
-  { id: 36, emojis: "🌎🌬️🔥" },
-  { id: 37, emojis: "🖐️🖐️❌" },
-  { id: 38, emojis: "⚛️🐱" },
-  { id: 39, emojis: "🦷🫜🪾" },
-  { id: 40, emojis: "🫃🍨" },
-  { id: 41, emojis: "✌️✌️" },
-  { id: 42, emojis: "🚣‍♂️🗑️🤰🏽" },
-  { id: 43, emojis: "🫖🩹❤️‍🩹" },
-  { id: 44, emojis: "⛴️⛴️🪵🧑‍💻" },
-  { id: 45, emojis: "🟥🦴" },
-  { id: 46, emojis: "🚬🏇" },
-  { id: 47, emojis: "🥩🍞" },
-  { id: 48, emojis: "🧻👦🏽👦🏼" },
-  { id: 49, emojis: "👩🏼‍⚕️🇦🇱" },
-  { id: 50, emojis: "🐝🪡" },
-  { id: 51, emojis: "🔫👀✌️🍷🏠" },
-  { id: 52, emojis: "👨🏻‍💼 👩🏼‍⚕️ 👷🏼‍♂️ 👮🏽‍♂️ 🔑 "},
-  { id: 53, emojis: "🐪" },
+const quizOne = [
+  { id: 1, emojis: "👧🏼🟥" },
+  { id: 2, emojis: "♿️🪨🪨" },
+  { id: 3, emojis: "🌶️👯‍♀️" },
+  { id: 4, emojis: "🪲🪲" },
+  { id: 5, emojis: "🫏🙍🏾‍♂️" },
+  { id: 6, emojis: "🔫🔫🌹🌹" },
+  { id: 7, emojis: "🐝🔛©️" },
+  { id: 8, emojis: "📬🎨☝🏼" },
+  { id: 9, emojis: "🧂🫑" },
+  { id: 10, emojis: "👮🏽‍♂️👮🏽‍♂️" },
+  { id: 11, emojis: "🚬🍄" },
+  { id: 12, emojis: "👸" },
+  { id: 13, emojis: "🫵✌️" },
+  { id: 14, emojis: "🚧👉" },
+  { id: 15, emojis: "🧑‍🍼👶🏼" },
+  { id: 16, emojis: "⚫️👁️🫛" },
+  { id: 17, emojis: "🔗🅿️" },
+  { id: 18, emojis: "🐱🪆🪆" },
+  { id: 19, emojis: "🥶▶️" },
+  { id: 20, emojis: "🤴🤴🦁" },
+  { id: 21, emojis: "👈🏻👌🏼🔫🔫" },
+  { id: 22, emojis: "🍯👧🏼👦🏽" },
+  { id: 23, emojis: "😴💭🏠" },
+  { id: 24, emojis: "☯️👯‍♂️" },
+  { id: 25, emojis: "🙍🏾‍♂️🙍🏾‍♂️➡️🧔🧔" },
+  { id: 26, emojis: "✉️🏤" },
+  { id: 27, emojis: "🦂🦂" },
+  { id: 28, emojis: "🤓" },
+  { id: 29, emojis: "❄️🐒🐒" },
+  { id: 30, emojis: "🇳🇴🚔📞" },
+  { id: 31, emojis: "🪀" },
+  { id: 32, emojis: "🐝🪡" },
+  { id: 33, emojis: "👩🏼‍⚕️🇦🇱" },
+  { id: 34, emojis: "🚬🏇" },
+  { id: 35, emojis: "🐫" },
+  { id: 36, emojis: "👀🗣️🫓🚽" },
+     { id: 37, emojis: "🍆👄🐝" },
+];
 
+const quizTwo = [
+  { id: 1, emojis: "😘" },
+  { id: 2, emojis: "🤴" },
+  { id: 3, emojis: "🧊" },
+  { id: 4, emojis: "🏇🦆" },
+  { id: 5, emojis: "🦭" },
+  { id: 6, emojis: "Ⓜ️🤕🍷🏳️‍🌈" },
+  { id: 7, emojis: "⚪️🕘🏠🕑1️⃣" },
+  { id: 8, emojis: "🔙🛣️👦🏼👦🏼" },
+  { id: 9, emojis: "🟤🅾️🪐👉🔴" },
+  { id: 10, emojis: "➕🔌🤭" },
+  { id: 11, emojis: "🔴🥵🌶️" },
+  { id: 12, emojis: "🔊🪁" },
+  { id: 13, emojis: "🕒🚪🚪⤵️" },
+  { id: 14, emojis: "©️©️🤠🤠" },
+  { id: 15, emojis: "🚰🇪🇸🇮🇹" },
+  { id: 16, emojis: "🍫🍩🍡👶🏼👶🏼" },
+  { id: 17, emojis: "🌇🚮" },
+  { id: 18, emojis: "6️⃣⚫️" },
+  { id: 19, emojis: "😢🕓😱" },
+  { id: 20, emojis: "🌎🌬️🔥" },
+  { id: 21, emojis: "🖐️🖐️❌" },
+  { id: 22, emojis: "⚛️🐱" },
+  { id: 23, emojis: "🦷🫜🪾" },
+  { id: 24, emojis: "🫃🍨" },
+  { id: 25, emojis: "✌️✌️" },
+  { id: 26, emojis: "🚣‍♂️🗑️🤰🏽" },
+  { id: 27, emojis: "🫖🩹❤️‍🩹" },
+  { id: 28, emojis: "⛴️⛴️🪵🧑‍💻" },
+  { id: 29, emojis: "🟥🦴" },
+  { id: 30, emojis: "🥩🍞" },
+  { id: 31, emojis: "🧻👦🏽👦🏼" },
+  { id: 32, emojis: "🔫👀✌️🍷🏠" },
+  { id: 33, emojis: "👨🏻‍💼👩🏼‍⚕️👷👮🏽‍♂️🔑" },
+  { id: 34, emojis: "🫖🔌👀" },
+  { id: 35, emojis: "🦁🔌🤑" },
+  { id: 36, emojis: "🚽🙂‍↕️🐈" },
+   { id: 37, emojis: "🪜🔥🧯" },
 ];
 
 function App() {
   const [screen, setScreen] = useState("home");
+  const [selectedQuiz, setSelectedQuiz] = useState("quizOne");
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [statuses, setStatuses] = useState({});
 
+  const questions = selectedQuiz === "quizOne" ? quizOne : quizTwo;
   const question = questions[currentQuestion];
   const isLastQuestion = currentQuestion === questions.length - 1;
+
+  function startQuiz(quizName) {
+    setSelectedQuiz(quizName);
+    setCurrentQuestion(0);
+    setStatuses({});
+    setScreen("quiz");
+  }
 
   function setStatus(status) {
     setStatuses({
@@ -100,7 +132,8 @@ function App() {
         <section className="mx-auto flex w-full max-w-sm flex-col items-center text-center">
           <div className="flex w-full items-center justify-between px-1">
             <p className="text-sm font-black tracking-[-0.3px] text-black/35">
-              {question.id} av {questions.length}
+              {selectedQuiz === "quizOne" ? "Quiz 1" : "Quiz 2"} · {question.id} av{" "}
+              {questions.length}
             </p>
 
             <button
@@ -111,7 +144,7 @@ function App() {
             </button>
           </div>
 
-          <div className="mt-5 grid w-full grid-cols-[repeat(17,1fr)] gap-2 rounded-[28px] bg-[#fffaf3] px-4 py-4">
+          <div className="mt-5 grid w-full grid-cols-12 gap-2 rounded-[28px] bg-[#fffaf3] px-4 py-4">
             {questions.map((item, index) => {
               const isActive = index === currentQuestion;
 
@@ -241,7 +274,7 @@ function App() {
             }}
             className="mt-3 w-full rounded-full bg-[#f4f4f4] px-8 py-4 text-lg font-black text-black/60 transition active:scale-[0.98]"
           >
-            Start på nytt
+            Til forsiden
           </button>
         </section>
       </main>
@@ -267,17 +300,17 @@ function App() {
         <img
           src={musicImage}
           alt="Emoji Musikkquiz"
-          className="mt-5 w-full max-w-[250px]"
+          className="mt-5 w-full max-w-[230px]"
         />
 
-        <div className="mt-6 flex w-full flex-col items-center">
+        <div className="mt-5 flex w-full flex-col items-center">
           <p className="text-[17px] font-bold tracking-[-0.5px]">
             All you need is:
           </p>
 
-          <div className="mt-5 flex flex-wrap justify-center gap-2">
+          <div className="mt-4 flex flex-wrap justify-center gap-2">
             <div className="rounded-full bg-[#fff7eb] px-4 py-2 text-[15px] font-medium">
-              👥 Et lag
+               ❤️ Love
             </div>
 
             <div className="rounded-full bg-[#fff7eb] px-4 py-2 text-[15px] font-medium">
@@ -289,21 +322,26 @@ function App() {
             </div>
 
             <div className="rounded-full bg-[#fff7eb] px-4 py-2 text-[15px] font-medium">
-              🧠 En open mind
-            </div>
-
-            <div className="rounded-full bg-[#fff7eb] px-4 py-2 text-[15px] font-medium">
-              🍻 Valgfri drikke
+               👥 Et lag
             </div>
           </div>
         </div>
 
-        <button
-          onClick={() => setScreen("quiz")}
-          className="mt-7 w-full rounded-full bg-[#d94a2f] px-8 py-4 text-lg font-black text-white transition active:scale-[0.98]"
-        >
-          ▶ Start quiz
-        </button>
+        <div className="mt-7 grid w-full grid-cols-2 gap-3">
+          <button
+            onClick={() => startQuiz("quizOne")}
+            className="rounded-[28px] bg-[#d94a2f] px-5 py-5 text-lg font-black text-white transition active:scale-[0.98]"
+          >
+            Spill Quiz 1
+          </button>
+
+          <button
+            onClick={() => startQuiz("quizTwo")}
+            className="rounded-[28px] bg-[#171717] px-5 py-5 text-lg font-black text-white transition active:scale-[0.98]"
+          >
+            Spill Quiz 2
+          </button>
+        </div>
 
         <p className="mt-5 text-[14px] leading-6 text-black/45">
           ✨ Ingen googling. Ingen AI. Ingen krangling ✨
