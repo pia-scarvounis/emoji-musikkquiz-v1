@@ -301,97 +301,119 @@ function nextQuestion() {
     );
   }
 
-  return (
-    <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-white px-6 py-4 text-[#171717]">
-      <div className="pointer-events-none absolute left-0 top-0 h-40 w-full bg-gradient-to-b from-[#fff3eb] to-transparent" />
-      <div className="pointer-events-none absolute bottom-0 left-0 h-40 w-full bg-gradient-to-t from-[#fff7ea] to-transparent" />
+ return (
+  <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-white px-5 py-3 text-[#171717]">
+    <div className="pointer-events-none absolute left-0 top-0 h-44 w-full bg-gradient-to-b from-[#fff0e5] to-transparent" />
+    <div className="pointer-events-none absolute bottom-0 left-0 h-44 w-full bg-gradient-to-t from-[#fff4e4] to-transparent" />
 
-      <section className="relative mx-auto flex w-full max-w-sm flex-col items-center text-center">
-        <h1 className="text-[56px] font-black leading-[0.92] tracking-[-2.5px]">
-          Emoji
-          <span className="block tracking-[-3px] text-[#d24b32]">
-            musikkquiz
-          </span>
-        </h1>
+    <div className="pointer-events-none absolute left-4 top-8 text-3xl text-[#e86b45] opacity-25">
+      𝄞
+    </div>
+    <div className="pointer-events-none absolute right-7 top-12 text-2xl text-[#e86b45] opacity-20">
+      ♪
+    </div>
+    <div className="pointer-events-none absolute right-4 top-24 text-4xl text-[#e8a56d] opacity-10">
+      ◉
+    </div>
+    <div className="pointer-events-none absolute left-5 bottom-20 text-2xl text-[#e8a56d] opacity-20">
+      🎧
+    </div>
+    <div className="pointer-events-none absolute right-7 bottom-16 text-2xl text-[#e86b45] opacity-20">
+      🎤
+    </div>
 
-        <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.35em] text-black/25">
-          VOL. 1
+    <section className="relative mx-auto flex w-full max-w-sm flex-col items-center text-center">
+      <h1 className="text-[58px] font-black leading-[0.82] tracking-[-3px]">
+        Emoji
+        <span className="block text-[#d94a2f]">musikkquiz</span>
+      </h1>
+
+      <p className="mt-2 text-[11px] font-bold uppercase tracking-[0.38em] text-black/30">
+        — Vol. 1 —
+      </p>
+
+      <p className="mt-3 max-w-[295px] text-[15px] leading-6 text-black/55">
+        Gjett artistene og bandene basert på emojis ❤️
+      </p>
+
+      <img
+        src={musicImage}
+        alt="Emoji Musikkquiz"
+        className="float-image mt-2 w-full max-w-[175px]"
+      />
+
+      <div className="mt-3 flex items-center justify-center rounded-full bg-[#fff7eb] px-5 py-2 text-[14px] font-black text-black/70 shadow-sm ring-1 ring-black/5">
+        <span>⭐ 2 quizer</span>
+        <span className="mx-3 h-5 w-px bg-black/10" />
+        <span>🎵 80 oppgaver</span>
+      </div>
+
+      <div className="mt-3 flex w-full flex-col items-center">
+        <p className="relative text-[17px] font-black italic tracking-[-0.4px]">
+          All you need is...
+          <span className="absolute -bottom-1 left-1/2 h-[2px] w-28 -translate-x-1/2 rounded-full bg-[#d94a2f]" />
         </p>
 
-        <p className="mt-3 max-w-[285px] text-[15.5px] leading-6 text-black/55">
-          Gjett artistene og bandene basert på emojis
-        </p>
+        <div className="mt-4 grid w-full grid-cols-5 gap-2">
+          <div className="rounded-[18px] bg-white px-2 py-2 text-[12px] font-semibold shadow-sm ring-1 ring-black/5">
+            <div className="text-xl">❤️</div>
+            Love
+          </div>
 
-        <img
-          src={musicImage}
-          alt="Emoji Musikkquiz"
-          className="float-image mt-2 w-full max-w-[190px]"
-        />
+          <div className="rounded-[18px] bg-white px-2 py-2 text-[12px] font-semibold shadow-sm ring-1 ring-black/5">
+            <div className="text-xl">🧠</div>
+            Brains
+          </div>
 
-        <div className="mt-3 flex flex-wrap justify-center gap-2">
-          <span className="rounded-full bg-[#fff7eb] px-3 py-1 text-[11px] font-black text-black/55">
-            2 quizer
-          </span>
+          <div className="rounded-[18px] bg-white px-2 py-2 text-[12px] font-semibold shadow-sm ring-1 ring-black/5">
+            <div className="text-xl">📝</div>
+            Papir
+          </div>
 
-          <span className="rounded-full bg-[#fff7eb] px-3 py-1 text-[11px] font-black text-black/55">
-            80 oppgaver
-          </span>
-        </div>
+          <div className="rounded-[18px] bg-white px-2 py-2 text-[12px] font-semibold shadow-sm ring-1 ring-black/5">
+            <div className="text-xl">✏️</div>
+            Penn
+          </div>
 
-        <div className="mt-3 flex w-full flex-col items-center">
-          <p className="text-[15px] font-black tracking-[-0.2px]">
-            All you need is...
-          </p>
-
-          <div className="mt-2 flex flex-wrap justify-center gap-2">
-            <div className="rounded-full bg-white px-3.5 py-2 text-[13px] font-semibold shadow-sm ring-1 ring-black/5">
-              ❤️ Love
-            </div>
-
-            <div className="rounded-full bg-white px-3.5 py-2 text-[13px] font-semibold shadow-sm ring-1 ring-black/5">
-              🧠 Brains
-            </div>
-
-            <div className="rounded-full bg-white px-3.5 py-2 text-[13px] font-semibold shadow-sm ring-1 ring-black/5">
-              📝 Papir
-            </div>
-
-            <div className="rounded-full bg-white px-3.5 py-2 text-[13px] font-semibold shadow-sm ring-1 ring-black/5">
-              ✏️ Penn
-            </div>
-
-            <div className="rounded-full bg-white px-3.5 py-2 text-[13px] font-semibold shadow-sm ring-1 ring-black/5">
-              👥 Et lag
-            </div>
+          <div className="rounded-[18px] bg-white px-2 py-2 text-[12px] font-semibold shadow-sm ring-1 ring-black/5">
+            <div className="text-xl">👥</div>
+            Et lag
           </div>
         </div>
+      </div>
 
-        <div className="mt-4 grid w-full grid-cols-2 gap-3">
-          <button
-            onClick={() => startQuiz("quizOne")}
-            className="rounded-[26px] bg-[#d94a2f] px-5 py-4 text-[17px] font-black text-white"
-          >
-            Spill Quiz 1
-          </button>
+      <div className="mt-4 grid w-full grid-cols-2 gap-3">
+        <button
+          onClick={() => startQuiz("quizOne")}
+          className="rounded-full bg-[#d94a2f] px-5 py-4 text-[18px] font-black text-white shadow-[0_10px_25px_rgba(217,74,47,0.22)] transition active:scale-[0.98]"
+        >
+          Quiz 1 🎵
+        </button>
 
-          <button
-            onClick={() => startQuiz("quizTwo")}
-            className="rounded-[26px] bg-[#171717] px-5 py-4 text-[17px] font-black text-white"
-          >
-            Spill Quiz 2
-          </button>
-        </div>
+        <button
+          onClick={() => startQuiz("quizTwo")}
+          className="rounded-full bg-[#171717] px-5 py-4 text-[18px] font-black text-white shadow-[0_10px_25px_rgba(0,0,0,0.16)] transition active:scale-[0.98]"
+        >
+          Quiz 2 ♪
+        </button>
+      </div>
 
-        <p className="mt-3 text-[12px] leading-5 text-black/40">
-          ✨ Ingen googling • Ingen AI • Ingen krangling ✨
-        </p>
+      <p className="mt-4 text-[12px] leading-5 text-black/45">
+        ✨ Ingen googling • Ingen AI • Ingen krangling ✨
+      </p>
 
-        <p className="mt-12 text-[12px] font-medium text-black/30">
-          Made with <span className="heart-pop">❤️</span> by Pia Scarvounis
-        </p>
-      </section>
-    </main>
-  );
+      <div className="mt-5 flex w-full items-center justify-center gap-3">
+        <div className="h-px flex-1 bg-black/10" />
+        <span className="heart-pop text-sm">❤️</span>
+        <div className="h-px flex-1 bg-black/10" />
+      </div>
+
+      <p className="mt-2 text-[12px] font-medium text-black/35">
+        Made with <span className="heart-pop">❤️</span> by Pia Scarvounis
+      </p>
+    </section>
+  </main>
+);
 }
 
 export default App;
