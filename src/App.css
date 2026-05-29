@@ -1,4 +1,6 @@
 @import "tailwindcss";
+
+/* kroko bilde */ 
 @keyframes softFloat {
   0% {
     transform: translateY(0);
@@ -13,4 +15,20 @@
 
 .float-image {
   animation: softFloat 3s ease-in-out infinite;
+}
+/* made with love hjerte */ 
+@keyframes heartPop {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.25);
+  }
+}
+
+.heart-pop {
+  display: inline-block;
+  animation: heartPop 1.6s ease-in-out infinite;
 }

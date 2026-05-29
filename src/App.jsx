@@ -374,9 +374,9 @@ function nextQuestion() {
           ✨  Ingen googling • Ingen AI • Ingen krangling ✨
         </p>
 
-        <p className="mt-2 text-[12px] font-medium text-black/30">
-          Made with ❤️ by Pia Scarvounis
-        </p>
+      <p className="mt-4 text-[12px] font-medium text-black/30">
+  Made with <span className="heart-pop">❤️</span> by Pia Scarvounis
+</p>
       </section>
     </main>
   );
