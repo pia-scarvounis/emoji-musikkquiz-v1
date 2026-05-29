@@ -24,7 +24,7 @@ const quizOne = [
   { id: 18, emojis: "🐱🪆🪆" },
   { id: 19, emojis: "🥶▶️" },
   { id: 20, emojis: "🤴🤴🦁" },
-  { id: 21, emojis: "👈🏻👌🏼🔫🔫" },
+  { id: 21, emojis: "👉🏼👌🏼🔫🔫" },
   { id: 22, emojis: "🍯👧🏼👦🏽" },
   { id: 23, emojis: "😴💭🏠" },
   { id: 24, emojis: "☯️👯‍♂️" },
