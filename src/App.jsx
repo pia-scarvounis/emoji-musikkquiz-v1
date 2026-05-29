@@ -238,7 +238,7 @@ function nextQuestion() {
     );
   }
 
-   if (screen === "done") {
+     if (screen === "done") {
     const answeredCount = Object.values(statuses).filter(
       (status) => status === "answered"
     ).length;
@@ -281,7 +281,7 @@ function nextQuestion() {
 
           <button
             onClick={() => setScreen("quiz")}
-            className="mt-10 w-full rounded-full bg-[#d94a2f] px-8 py-4 text-lg font-black text-white transition active:scale-[0.98]"
+            className="mt-10 w-full rounded-full bg-[#d94a2f] px-8 py-4 text-lg font-black text-white"
           >
             Se gjennom igjen
           </button>
@@ -292,7 +292,7 @@ function nextQuestion() {
               setStatuses({});
               setScreen("home");
             }}
-            className="mt-3 w-full rounded-full bg-[#f4f4f4] px-8 py-4 text-lg font-black text-black/60 transition active:scale-[0.98]"
+            className="mt-3 w-full rounded-full bg-[#f4f4f4] px-8 py-4 text-lg font-black text-black/60"
           >
             Til forsiden
           </button>
@@ -302,87 +302,93 @@ function nextQuestion() {
   }
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-white px-6 py-4 text-[#171717]">
-      <section className="mx-auto flex w-full max-w-sm flex-col items-center text-center">
-        <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-full border border-[#efe4d3] bg-[#fffaf3] text-2xl">
-          🎵
-        </div>
+    <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-white px-6 py-4 text-[#171717]">
+      <div className="pointer-events-none absolute left-0 top-0 h-40 w-full bg-gradient-to-b from-[#fff3eb] to-transparent" />
+      <div className="pointer-events-none absolute bottom-0 left-0 h-40 w-full bg-gradient-to-t from-[#fff7ea] to-transparent" />
 
-        <h1 className="text-[48px] font-black leading-[0.88] tracking-[-1.6px]">
+      <section className="relative mx-auto flex w-full max-w-sm flex-col items-center text-center">
+        <h1 className="text-[56px] font-black leading-[0.92] tracking-[-2.5px]">
           Emoji
-          <span className="block text-[#d24b32]">musikkquiz</span>
+          <span className="block tracking-[-3px] text-[#d24b32]">
+            musikkquiz
+          </span>
         </h1>
 
-        <p className="mt-3 max-w-[280px] text-[16px] leading-6 text-black/55">
-          Gjett artistene og bandene basert på emojis
+        <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.35em] text-black/25">
+          VOL. 1
         </p>
 
-        <div className="mt-3 flex gap-2">
-          <div className="rounded-full bg-[#fff7eb] px-3 py-1.5 text-[13px] font-bold text-black/55">
-            2 quizer
-          </div>
-
-          <div className="rounded-full bg-[#fff7eb] px-3 py-1.5 text-[13px] font-bold text-black/55">
-            80 oppgaver
-          </div>
-        </div>
+        <p className="mt-3 max-w-[285px] text-[15.5px] leading-6 text-black/55">
+          Gjett artistene og bandene basert på emojis
+        </p>
 
         <img
           src={musicImage}
           alt="Emoji Musikkquiz"
-          className="float-image mt-4 w-full max-w-[205px]"
+          className="float-image mt-2 w-full max-w-[190px]"
         />
 
-        <div className="mt-4 flex w-full flex-col items-center">
-          <p className="text-[16px] font-bold tracking-[-0.3px]">
+        <div className="mt-3 flex flex-wrap justify-center gap-2">
+          <span className="rounded-full bg-[#fff7eb] px-3 py-1 text-[11px] font-black text-black/55">
+            2 quizer
+          </span>
+
+          <span className="rounded-full bg-[#fff7eb] px-3 py-1 text-[11px] font-black text-black/55">
+            80 oppgaver
+          </span>
+        </div>
+
+        <div className="mt-3 flex w-full flex-col items-center">
+          <p className="text-[15px] font-black tracking-[-0.2px]">
             All you need is...
           </p>
 
-          <div className="mt-3 flex flex-wrap justify-center gap-2">
-            <div className="rounded-full bg-[#fff7eb] px-4 py-2 text-[14px] font-medium">
+          <div className="mt-2 flex flex-wrap justify-center gap-2">
+            <div className="rounded-full bg-white px-3.5 py-2 text-[13px] font-semibold shadow-sm ring-1 ring-black/5">
               ❤️ Love
             </div>
-            <div className="rounded-full bg-[#fff7eb] px-4 py-2 text-[14px] font-medium">
-  🧠 Brains
-</div>
 
-            <div className="rounded-full bg-[#fff7eb] px-4 py-2 text-[14px] font-medium">
+            <div className="rounded-full bg-white px-3.5 py-2 text-[13px] font-semibold shadow-sm ring-1 ring-black/5">
+              🧠 Brains
+            </div>
+
+            <div className="rounded-full bg-white px-3.5 py-2 text-[13px] font-semibold shadow-sm ring-1 ring-black/5">
               📝 Papir
             </div>
 
-            <div className="rounded-full bg-[#fff7eb] px-4 py-2 text-[14px] font-medium">
+            <div className="rounded-full bg-white px-3.5 py-2 text-[13px] font-semibold shadow-sm ring-1 ring-black/5">
               ✏️ Penn
             </div>
 
-            <div className="rounded-full bg-[#fff7eb] px-4 py-2 text-[14px] font-medium">
+            <div className="rounded-full bg-white px-3.5 py-2 text-[13px] font-semibold shadow-sm ring-1 ring-black/5">
               👥 Et lag
             </div>
           </div>
         </div>
 
-       <div className="mt-5 mb-6 grid w-full grid-cols-2 gap-3">
+        <div className="mt-4 grid w-full grid-cols-2 gap-3">
           <button
             onClick={() => startQuiz("quizOne")}
-            className="rounded-[26px] bg-[#d94a2f] px-5 py-4 text-[17px] font-black text-white transition active:scale-[0.98]"
+            className="rounded-[26px] bg-[#d94a2f] px-5 py-4 text-[17px] font-black text-white"
           >
             Spill Quiz 1
           </button>
 
           <button
             onClick={() => startQuiz("quizTwo")}
-            className="rounded-[26px] bg-[#171717] px-5 py-4 text-[17px] font-black text-white transition active:scale-[0.98]"
+            className="rounded-[26px] bg-[#171717] px-5 py-4 text-[17px] font-black text-white"
           >
             Spill Quiz 2
           </button>
         </div>
 
-        <p className="mt-7 text-[13px] leading-5 text-black/40">
-          ✨  Ingen googling • Ingen AI • Ingen krangling ✨
+        <p className="mt-3 text-[12px] leading-5 text-black/40">
+          ✨ Ingen googling • Ingen AI • Ingen krangling ✨
         </p>
 
-      <p className="mt-4 text-[12px] font-medium text-black/30">
-  Made with <span className="heart-pop">❤️</span> by Pia Scarvounis
-</p>
+        <p className="mt-12 text-[12px] font-medium text-black/30">
+          Made with <span className="heart-pop">❤️</span> by Pia Scarvounis
+        </p>
       </section>
     </main>
   );
