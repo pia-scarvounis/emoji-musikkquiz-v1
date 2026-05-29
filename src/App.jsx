@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./App.css";
 import musicImage from "./assets/music.png";
 import confetti from "canvas-confetti";
@@ -99,6 +99,22 @@ function App() {
   const question = questions[currentQuestion];
   const isLastQuestion = currentQuestion === questions.length - 1;
 
+  const touchStartX = useRef(null);
+
+  function handleTouchStart(e) {
+    touchStartX.current = e.touches[0].clientX;
+  }
+
+  function handleTouchEnd(e) {
+    if (touchStartX.current === null) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) nextQuestion();
+      else previousQuestion();
+    }
+    touchStartX.current = null;
+  }
+
   function startQuiz(quizName) {
     setSelectedQuiz(quizName);
     setCurrentQuestion(0);
@@ -178,8 +194,17 @@ function nextQuestion() {
 
           <div
             key={currentQuestion}
-            className="question-card mt-5 flex flex-1 w-full flex-col items-center justify-center rounded-[42px] bg-gradient-to-b from-[#fffdf9] to-[#fff7eb] shadow-[0_8px_40px_rgba(217,74,47,0.07),0_2px_12px_rgba(0,0,0,0.06)]"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+            className="question-card relative mt-5 flex flex-1 w-full flex-col items-center justify-center rounded-[42px] bg-gradient-to-b from-[#fffdf9] to-[#fff7eb] shadow-[0_8px_40px_rgba(217,74,47,0.07),0_2px_12px_rgba(0,0,0,0.06)]"
           >
+            {currentQuestion > 0 && (
+              <span className="swipe-hint absolute left-5 text-[22px] font-black text-black/15 select-none">‹</span>
+            )}
+            {!isLastQuestion && (
+              <span className="swipe-hint absolute right-5 text-[22px] font-black text-black/15 select-none">›</span>
+            )}
+
             <p className="mb-5 text-[10px] font-black uppercase tracking-[0.28em] text-black/25">
               Oppgave {question.id}
             </p>

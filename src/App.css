@@ -33,6 +33,15 @@
   animation: heartPop 1.6s ease-in-out infinite;
 }
 
+@keyframes swipePulse {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.35; }
+}
+
+.swipe-hint {
+  animation: swipePulse 2.4s ease-in-out infinite;
+}
+
 @keyframes questionSlide {
   from {
     opacity: 0;
