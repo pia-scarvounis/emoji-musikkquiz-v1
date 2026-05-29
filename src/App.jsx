@@ -351,7 +351,7 @@ function nextQuestion() {
           </div>
         </div>
 
-        <div className="mt-5 grid w-full grid-cols-2 gap-3">
+       <div className="mt-5 mb-6 grid w-full grid-cols-2 gap-3">
           <button
             onClick={() => startQuiz("quizOne")}
             className="rounded-[26px] bg-[#d94a2f] px-5 py-4 text-[17px] font-black text-white transition active:scale-[0.98]"
@@ -367,8 +367,8 @@ function nextQuestion() {
           </button>
         </div>
 
-        <p className="mt-4 text-[13px] leading-5 text-black/40">
-          ✨ Ingen googling. Ingen AI. Ingen krangling ✨
+        <p className="mt-7 text-[13px] leading-5 text-black/40">
+          ✨  Ingen googling • Ingen AI • Ingen krangling ✨
         </p>
 
         <p className="mt-2 text-[12px] font-medium text-black/30">
