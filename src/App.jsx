@@ -276,7 +276,7 @@ function App() {
   const isLastQuestion = currentQuestion === questions.length - 1;
   const totalPoints = Object.values(points).filter(Boolean).length;
 
-  const isEnglish = selectedCategory?.id === "english";
+  const isEnglish = true;
   const ui = isEnglish ? {
     quit: "Done",
     question: "Question",
@@ -412,7 +412,7 @@ function App() {
           </h1>
 
           <p className="mt-3 max-w-[280px] text-[15px] leading-6 text-black/55">
-            Gjett artistene og bandene basert på emojis ❤️
+            Guess the artists and bands based on emojis ❤️
           </p>
 
           <img
@@ -422,14 +422,14 @@ function App() {
           />
 
           <p className="mt-4 text-[11px] font-black uppercase tracking-[0.3em] text-black/30">
-            {activeCategories.length} kategorier
+            {activeCategories.length} categories
           </p>
 
           <input
             type="text"
             value={teamName}
             onChange={(e) => setTeamName(e.target.value)}
-            placeholder="Hva heter laget ditt?"
+            placeholder="What's your team name?"
             className="mt-5 w-full rounded-2xl bg-[#f4f4f4] px-5 py-3.5 text-center text-[16px] font-bold text-black outline-none placeholder:font-medium placeholder:text-black/30 focus:ring-2 focus:ring-[#d94a2f]/30"
           />
 
@@ -466,7 +466,7 @@ function App() {
               onClick={() => setScreen("home")}
               className="text-sm font-black tracking-[-0.3px] text-black/40 transition active:opacity-60"
             >
-              ← Forside
+              ← Home
             </button>
             <span className="rounded-full bg-[#f4f4f4] px-3 py-1.5 text-[12px] font-black text-black/50">
               {teamName}
@@ -474,10 +474,10 @@ function App() {
           </div>
 
           <h2 className="text-[36px] font-black leading-[1] tracking-[-1.5px]">
-            Velg
-            <span className="text-[#d94a2f]"> kategori</span>
+            Choose a
+            <span className="text-[#d94a2f]"> category</span>
           </h2>
-          <p className="mt-1 text-[14px] text-black/40">Trykk for å starte</p>
+          <p className="mt-1 text-[14px] text-black/40">Tap to start</p>
 
           <div className="mt-5 flex flex-col gap-3">
             {categories.map((cat) => (
@@ -496,7 +496,7 @@ function App() {
                 <div className="min-w-0 flex-1">
                   <p className="text-[17px] font-black leading-tight text-white">{cat.name}</p>
                   <p className="mt-0.5 text-[13px] font-semibold text-white/65">
-                    {cat.comingSoon ? "Kommer snart 🔒" : `${cat.questions.length} oppgaver`}
+                    {cat.comingSoon ? "Coming soon 🔒" : `${cat.questions.length} questions`}
                   </p>
                 </div>
                 {!cat.comingSoon && (
