@@ -251,6 +251,7 @@ const categories = [
       { id: 15, emojis: "🦂🦂" },
       { id: 16, emojis: "😘" },
       { id: 17, emojis: "🏖️👦🏼👦🏼" },
+      { id: 18, emojis: "🐝🔛©️" },
     ],
   },
 ];
@@ -657,8 +658,41 @@ function App() {
   // ─── DONE ──────────────────────────────────────────────────────────────────
   if (screen === "done") {
     return (
-      <main className="min-h-dvh bg-white px-5 py-6 text-[#171717]">
+      <main className="relative min-h-dvh bg-white px-5 py-6 text-[#171717]">
+
+        {showLeaveConfirm && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-6">
+            <div className="w-full max-w-sm rounded-[28px] bg-white p-7 shadow-xl">
+              <p className="text-[22px] font-black tracking-[-0.5px]">{ui.leaveTitle}</p>
+              <p className="mt-1.5 text-[15px] text-black/50">{ui.leaveBody}</p>
+              <div className="mt-6 flex flex-col gap-3">
+                <button
+                  onClick={backToHome}
+                  className="w-full rounded-full bg-[#d94a2f] px-8 py-4 font-black text-white shadow-[0_4px_14px_rgba(217,74,47,0.28)] transition active:scale-[0.98]"
+                >
+                  {ui.leaveYes}
+                </button>
+                <button
+                  onClick={() => setShowLeaveConfirm(false)}
+                  className="w-full rounded-full bg-[#f4f4f4] px-8 py-4 font-black text-black/60 transition active:scale-[0.98]"
+                >
+                  {ui.leaveNo}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
         <section className="mx-auto flex w-full max-w-sm flex-col">
+
+          <div className="mb-4 flex items-center justify-between">
+            <button
+              onClick={() => setShowLeaveConfirm(true)}
+              className="flex h-7 w-7 items-center justify-center rounded-full bg-black/8 text-[13px] font-black text-black/40 transition active:scale-90"
+            >
+              ✕
+            </button>
+          </div>
 
           <h1 className="text-[48px] font-black leading-[0.9] tracking-[-2px]">{ui.finished}</h1>
 
