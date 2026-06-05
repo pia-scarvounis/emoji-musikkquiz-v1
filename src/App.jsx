@@ -107,8 +107,8 @@ const categories = [
       { id: 26, emojis: "🥩🍞" },
       { id: 27, emojis: "🫖🩹❤️‍🩹" },
       { id: 28, emojis: "🫃🍨" },
-      { id: 29, emojis: "🔗🌳" },
-      { id: 30, emojis: "🎵👼" },
+      { id: 29, emojis: "🔗🅿️" },
+      { id: 30, emojis: "🍆😇🅾️" },
     ],
   },
   {
