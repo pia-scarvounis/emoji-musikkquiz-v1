@@ -408,7 +408,7 @@ function App() {
         <section className="relative mx-auto flex w-full max-w-sm flex-1 flex-col items-center justify-center text-center">
           <h1 className="text-[58px] font-black leading-[0.82] tracking-[-3px]">
             Emoji
-            <span className="block text-[#d94a2f]">musikkquiz</span>
+            <span className="block text-[#d94a2f]">music quiz</span>
           </h1>
 
           <p className="mt-3 max-w-[280px] text-[15px] leading-6 text-black/55">
@@ -464,9 +464,9 @@ function App() {
           <div className="mb-5 flex items-center justify-between">
             <button
               onClick={() => setScreen("home")}
-              className="text-sm font-black tracking-[-0.3px] text-black/40 transition active:opacity-60"
+              className="text-[11px] font-black uppercase tracking-[0.14em] text-black/35 transition active:opacity-55"
             >
-              ← Home
+              ‹ Home
             </button>
             <span className="rounded-full bg-[#f4f4f4] px-3 py-1.5 text-[12px] font-black text-black/50">
               {teamName}
@@ -555,7 +555,7 @@ function App() {
             <div className="flex items-center gap-2.5">
               <button
                 onClick={() => setShowLeaveConfirm(true)}
-                className="flex h-7 w-7 items-center justify-center rounded-full bg-black/8 text-[13px] font-black text-black/40 transition active:scale-90"
+                className="flex h-8 w-8 items-center justify-center rounded-full ring-1 ring-black/18 text-[13px] text-black/30 transition active:scale-90 active:ring-black/35"
               >
                 ✕
               </button>
@@ -688,7 +688,7 @@ function App() {
           <div className="mb-4 flex items-center justify-between">
             <button
               onClick={() => setShowLeaveConfirm(true)}
-              className="flex h-7 w-7 items-center justify-center rounded-full bg-black/8 text-[13px] font-black text-black/40 transition active:scale-90"
+              className="flex h-8 w-8 items-center justify-center rounded-full ring-1 ring-black/18 text-[13px] text-black/30 transition active:scale-90 active:ring-black/35"
             >
               ✕
             </button>
