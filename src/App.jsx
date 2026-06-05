@@ -107,6 +107,8 @@ const categories = [
       { id: 26, emojis: "🥩🍞" },
       { id: 27, emojis: "🫖🩹❤️‍🩹" },
       { id: 28, emojis: "🫃🍨" },
+      { id: 29, emojis: "🔗🌳" },
+      { id: 30, emojis: "🎵👼" },
     ],
   },
   {
@@ -264,6 +266,7 @@ function App() {
   const [answers, setAnswers] = useState({});   // { [questionIdx]: string }
   const [statuses, setStatuses] = useState({});  // { [questionIdx]: "stuck" }
   const [points, setPoints] = useState({});      // { [questionIdx]: boolean }
+  const [showLeaveConfirm, setShowLeaveConfirm] = useState(false);
 
   const touchStartX = useRef(null);
 
@@ -287,6 +290,10 @@ function App() {
     points: "points",
     backToQuestions: "← Back to questions",
     newCategory: "Choose new category",
+    leaveTitle: "Are you sure?",
+    leaveBody: "Your answers will be lost.",
+    leaveYes: "Yes, leave",
+    leaveNo: "Stay",
   } : {
     quit: "Ferdig",
     question: "Oppgave",
@@ -301,6 +308,10 @@ function App() {
     points: "poeng",
     backToQuestions: "← Tilbake til spørsmålene",
     newCategory: "Velg ny kategori",
+    leaveTitle: "Er du sikker?",
+    leaveBody: "Svarene dine forsvinner.",
+    leaveYes: "Ja, forlat",
+    leaveNo: "Bli",
   };
 
   function handleTouchStart(e) {
@@ -369,6 +380,16 @@ function App() {
     setStatuses({});
     setPoints({});
     setScreen("categories");
+  }
+
+  function backToHome() {
+    setCurrentQuestion(0);
+    setAnswers({});
+    setStatuses({});
+    setPoints({});
+    setSelectedCategory(null);
+    setShowLeaveConfirm(false);
+    setScreen("home");
   }
 
   // ─── HOME ──────────────────────────────────────────────────────────────────
@@ -502,13 +523,45 @@ function App() {
   // ─── QUIZ ──────────────────────────────────────────────────────────────────
   if (screen === "quiz") {
     return (
-      <main className="flex h-dvh flex-col bg-white px-5 py-6 text-[#171717]">
+      <main className="relative flex h-dvh flex-col bg-white px-5 py-6 text-[#171717]">
+
+        {showLeaveConfirm && (
+          <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/40 px-6">
+            <div className="w-full max-w-sm rounded-[28px] bg-white p-7 shadow-xl">
+              <p className="text-[22px] font-black tracking-[-0.5px]">{ui.leaveTitle}</p>
+              <p className="mt-1.5 text-[15px] text-black/50">{ui.leaveBody}</p>
+              <div className="mt-6 flex flex-col gap-3">
+                <button
+                  onClick={backToHome}
+                  className="w-full rounded-full bg-[#d94a2f] px-8 py-4 font-black text-white shadow-[0_4px_14px_rgba(217,74,47,0.28)] transition active:scale-[0.98]"
+                >
+                  {ui.leaveYes}
+                </button>
+                <button
+                  onClick={() => setShowLeaveConfirm(false)}
+                  className="w-full rounded-full bg-[#f4f4f4] px-8 py-4 font-black text-black/60 transition active:scale-[0.98]"
+                >
+                  {ui.leaveNo}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
         <section className="mx-auto flex w-full max-w-sm flex-1 flex-col">
 
           <div className="flex w-full items-center justify-between">
-            <p className="max-w-[200px] truncate text-sm font-black tracking-[-0.3px] text-black/35">
-              {selectedCategory.emoji} {selectedCategory.name} · {question.id}/{questions.length}
-            </p>
+            <div className="flex items-center gap-2.5">
+              <button
+                onClick={() => setShowLeaveConfirm(true)}
+                className="flex h-7 w-7 items-center justify-center rounded-full bg-black/8 text-[13px] font-black text-black/40 transition active:scale-90"
+              >
+                ✕
+              </button>
+              <p className="max-w-[180px] truncate text-sm font-black tracking-[-0.3px] text-black/35">
+                {selectedCategory.emoji} {selectedCategory.name} · {question.id}/{questions.length}
+              </p>
+            </div>
             <button
               onClick={() => { celebrate(); setScreen("done"); }}
               className="text-sm font-black tracking-[-0.3px] text-black/35"
